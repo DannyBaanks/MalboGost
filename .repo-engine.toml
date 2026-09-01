@@ -1,5 +1,5 @@
 [repo_engine]
-template = "research-demo"
+template = "serious"
 phase = "building"
-visual_language = "lab notebook"
-required_artifacts = ["README.md", "methodology", "fixtures", "evidence"]
+visual_language = "technical brief"
+required_artifacts = ["README.md", "LICENSE", ".github/workflows"]
