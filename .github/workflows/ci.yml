@@ -22,6 +22,4 @@ jobs:
         run: python e2e.py
       - name: Milestones M0-M3
         run: |
-          python milestones/M2_FIXED_TRANSFORM/build_M2.py
-          python milestones/M3_POSITION_STATE/build_M3.py
           python run_milestone.py milestones/M0_RUNTIME_INPUT --inputs A B C
