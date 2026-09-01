@@ -1,0 +1,20 @@
+{
+  "milestone": "M5_SINGLE_CHAR",
+  "classification": {
+    "M5_SINGLE_CHAR_CONGRUENCE": "DEMONSTRATED (2-char subset)"
+  },
+  "program": "program.mal",
+  "sha256": "c0ab6af29230f72e94aa1f3f9fa1c6f940c601ec846785d38cae533a2a073299",
+  "length": 103,
+  "structure": "BRANCH@0 -> IN@99 -> CRAZY@100 (K=36 '$' at pos2) -> OUT@101 -> HALT@102",
+  "targets": {
+    "'!' (33) -> 54 ('6')": "K1 of print program for '!' ; crazy(33,36)%256=54",
+    "'1' (49) -> 62 ('>')": "K1 of print program for '1' ; crazy(49,36)%256=62"
+  },
+  "meaning": "Frontend computes first constant (K1) of the print program that prints the input char. For '!' K1=54, for '1' K1=62. This is the congruence step for generating the print program's variable part.",
+  "verification": {
+    "oracle": "5 steps halt_opcode, output 54 and 62 respectively",
+    "compile_once": "same SHA256 for both inputs"
+  },
+  "next": "M6 stream: extend to 2-char input stream, generating print program for each char sequentially"
+}

@@ -1,0 +1,61 @@
+{
+  "milestone": "M2_FIXED_TRANSFORM",
+  "interpreter": "gost.exe",
+  "program": "C:\\Development\\ISyCo Git\\gost\\milestones\\M2_FIXED_TRANSFORM\\program.mal",
+  "program_sha256": "2fb4e54a289064eb1fe7ae863dfc27ee0541adbb9ea5e1512596e367f70d724b",
+  "transform": "a = crazy(input, mem[1]=61) % 256",
+  "compile_once_test_many": true,
+  "results": [
+    {
+      "input": "A",
+      "input_hex": "41",
+      "program_sha256": "2fb4e54a289064eb1fe7ae863dfc27ee0541adbb9ea5e1512596e367f70d724b",
+      "same_program": true,
+      "gost": "O",
+      "oracle": "O",
+      "expected_crazy": "O",
+      "status": "PASS"
+    },
+    {
+      "input": "B",
+      "input_hex": "42",
+      "program_sha256": "2fb4e54a289064eb1fe7ae863dfc27ee0541adbb9ea5e1512596e367f70d724b",
+      "same_program": true,
+      "gost": "N",
+      "oracle": "N",
+      "expected_crazy": "N",
+      "status": "PASS"
+    },
+    {
+      "input": "X",
+      "input_hex": "58",
+      "program_sha256": "2fb4e54a289064eb1fe7ae863dfc27ee0541adbb9ea5e1512596e367f70d724b",
+      "same_program": true,
+      "gost": "\u001d",
+      "oracle": "\u001d",
+      "expected_crazy": "\u001d",
+      "status": "PASS"
+    },
+    {
+      "input": "Z",
+      "input_hex": "5a",
+      "program_sha256": "2fb4e54a289064eb1fe7ae863dfc27ee0541adbb9ea5e1512596e367f70d724b",
+      "same_program": true,
+      "gost": "\u0018",
+      "oracle": "\u0018",
+      "expected_crazy": "\u0018",
+      "status": "PASS"
+    },
+    {
+      "input": "7",
+      "input_hex": "37",
+      "program_sha256": "2fb4e54a289064eb1fe7ae863dfc27ee0541adbb9ea5e1512596e367f70d724b",
+      "same_program": true,
+      "gost": "V",
+      "oracle": "V",
+      "expected_crazy": "V",
+      "status": "PASS"
+    }
+  ],
+  "overall": "PASS"
+}

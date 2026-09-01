@@ -1,0 +1,17 @@
+{
+  "milestone": "M7_FRONTEND",
+  "classification": {
+    "M7_PRINT_AB": "DEMONSTRATED",
+    "M7_FRONTEND_GENERATOR": "PARTIAL (compiler skeleton)"
+  },
+  "print_program": "print_AB.mal",
+  "sha256": "bcc6f3e3317bfd25ebc8b7d09479714f731b090bea01a4a87d1c2c8c63539417",
+  "length": 106,
+  "structure": "BRANCH@0 -> [p@99(45) p@100(74) <@101] for 'A' -> [p@102(34) p@103(33) <@104] for 'B' -> v@105 ; filler[1]=45,[2]=74,[4]=34,[5]=33",
+  "verification": {
+    "oracle": "output 'AB' 8 steps halt_opcode",
+    "gost": "AB\\r\\n"
+  },
+  "frontend_next": "Malbolge frontend that reads 'AB' and outputs print_AB.mal via lookup (M4/M5/M6 primitives). Compiler skeleton in compiler/ will generate such frontends for arbitrary text by chaining the per-char K1/K2 lookups.",
+  "compiler": "compiler/ir.py defines Text->PrintProgram IR; compiler/codegen.py will emit Malbolge frontend that does IN->CRAZY lookup->OUT for each char's K's, as demonstrated in M4/M5/M6."
+}

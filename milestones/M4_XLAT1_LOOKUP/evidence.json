@@ -1,0 +1,30 @@
+{
+  "milestone": "M4_XLAT1_LOOKUP",
+  "classification": {
+    "M4_FULL_94": "NOT_DEMONSTRATED",
+    "M4_PARTIAL_2WAY": "DEMONSTRATED",
+    "INPUT_BRANCHING_PRIMITIVE_2WAY": "DEMONSTRATED (verified via MALPAD truth-machine)",
+    "XLAT1_INDEX_LOOKUP_STRAIGHTLINE_2": "DEMONSTRATED"
+  },
+  "program": "program.mal",
+  "sha256": "d3667e0a20251aa1b602bbb55bf42e1d3e57e0a6e4f9a8807199a086b3a7d9bc",
+  "length": 103,
+  "structure": "BRANCH@0 -> skip filler[1..98] -> IN@99 -> CRAZY@100 -> OUT@101 -> HALT@102 ; filler[2]='&' (K=38)",
+  "targets": {
+    "'%' (37) -> 49 ('1')": "XLAT1.index('%')=49 ; crazy(37,38)%256=49",
+    "'3' (51) -> 64 ('@')": "XLAT1.index('3')=64 ; crazy(51,38)%256=64"
+  },
+  "verification": {
+    "simulator": "oracle.py (independent) 5 steps halt_opcode for both inputs",
+    "gost": "gost.exe output '1\\r\\n' and '@\\r\\n' (CRLF is Windows console artifact; stripped output matches)",
+    "compile_once": "same SHA256 for both inputs",
+    "inputs_tested": ["%", "3"]
+  },
+  "search_evidence": {
+    "straight_line_full_pair_slash_lt": "No single-K CRAZY maps '/'->84 and '<'->66 (searched K 33..126)",
+    "single_K_2hits": "K=38 '&' hits ['%', '3'] (2-char subset) ; K=37 hits ['=', 'S']",
+    "per_path_chains": "'/' needs (p,p,p) (33,74,74), '<' needs (p,105) individually but no shared K",
+    "conclusion": "Full 94-entry lookup requires self-modifying branch (state-machine compiler) ; 2-entry subset IS demonstrable via straight-line as shown"
+  },
+  "next": "M5 single-char congruence: extend from 2-entry demo to per-char program that matches Python frontend's encode for that char"
+}

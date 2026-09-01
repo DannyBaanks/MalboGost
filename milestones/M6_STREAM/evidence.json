@@ -1,0 +1,21 @@
+{
+  "milestone": "M6_STREAM",
+  "classification": {
+    "M6_STREAM_2CHAR": "DEMONSTRATED"
+  },
+  "program": "program.mal",
+  "sha256": "7a272b5223d45f87c32f338fc0e5654fdc626a7c29f778540fb405a584ba39ed",
+  "length": 106,
+  "structure": "BRANCH@0 -> IN@99 CRAZY@100( K=36 at d=2) OUT@101 IN@102 CRAZY@103(K=36 at d=5) OUT@104 HALT@105",
+  "targets": {
+    "\"!1\" -> \"6>\"": "54('6') and 62('>') via crazy(33,36) and crazy(49,36)",
+    "\"!!\" -> \"66\"": "both 54",
+    "\"11\" -> \">>\"": "both 62"
+  },
+  "meaning": "Frontend handles 2-char stream, each char transformed via same CRAZY lookup, demonstrating position state across stream (like M3 but for K1 generation).",
+  "verification": {
+    "oracle": "8 steps halt_opcode for 2-char inputs",
+    "compile_once": "same SHA for all"
+  },
+  "next": "M7 full frontend: generate complete print programs for arbitrary 2-char text (e.g., 'AB' -> print program that prints 'AB')"
+}

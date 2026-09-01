@@ -1,0 +1,77 @@
+{
+  "milestone": "M0_RUNTIME_INPUT",
+  "interpreter": "gost",
+  "command": "py run_milestone.py C:\\Development\\ISyCo Git\\gost\\milestones\\M0_RUNTIME_INPUT --inputs A B C X Z 7",
+  "program_path": "C:\\Development\\ISyCo Git\\gost\\milestones\\M0_RUNTIME_INPUT\\program.mal",
+  "program_sha256": "681f8033410df7a4a5d7eaa3f8c730929459de77ed4fd27cac02cd813ab36c0c",
+  "compile_once_test_many": true,
+  "results": [
+    {
+      "input": "A",
+      "input_hex": "41",
+      "program_sha256": "681f8033410df7a4a5d7eaa3f8c730929459de77ed4fd27cac02cd813ab36c0c",
+      "same_program_as_baseline": true,
+      "output": "A",
+      "expected": "A",
+      "oracle_output": "A",
+      "gost_exit": 0,
+      "status": "PASS"
+    },
+    {
+      "input": "B",
+      "input_hex": "42",
+      "program_sha256": "681f8033410df7a4a5d7eaa3f8c730929459de77ed4fd27cac02cd813ab36c0c",
+      "same_program_as_baseline": true,
+      "output": "B",
+      "expected": "B",
+      "oracle_output": "B",
+      "gost_exit": 0,
+      "status": "PASS"
+    },
+    {
+      "input": "C",
+      "input_hex": "43",
+      "program_sha256": "681f8033410df7a4a5d7eaa3f8c730929459de77ed4fd27cac02cd813ab36c0c",
+      "same_program_as_baseline": true,
+      "output": "C",
+      "expected": "C",
+      "oracle_output": "C",
+      "gost_exit": 0,
+      "status": "PASS"
+    },
+    {
+      "input": "X",
+      "input_hex": "58",
+      "program_sha256": "681f8033410df7a4a5d7eaa3f8c730929459de77ed4fd27cac02cd813ab36c0c",
+      "same_program_as_baseline": true,
+      "output": "X",
+      "expected": "X",
+      "oracle_output": "X",
+      "gost_exit": 0,
+      "status": "PASS"
+    },
+    {
+      "input": "Z",
+      "input_hex": "5a",
+      "program_sha256": "681f8033410df7a4a5d7eaa3f8c730929459de77ed4fd27cac02cd813ab36c0c",
+      "same_program_as_baseline": true,
+      "output": "Z",
+      "expected": "Z",
+      "oracle_output": "Z",
+      "gost_exit": 0,
+      "status": "PASS"
+    },
+    {
+      "input": "7",
+      "input_hex": "37",
+      "program_sha256": "681f8033410df7a4a5d7eaa3f8c730929459de77ed4fd27cac02cd813ab36c0c",
+      "same_program_as_baseline": true,
+      "output": "7",
+      "expected": "7",
+      "oracle_output": "7",
+      "gost_exit": 0,
+      "status": "PASS"
+    }
+  ],
+  "overall": "PASS"
+}

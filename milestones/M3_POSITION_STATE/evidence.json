@@ -1,0 +1,109 @@
+{
+  "milestone": "M3_POSITION_STATE",
+  "interpreter": "gost.exe",
+  "program": "C:\\Development\\ISyCo Git\\gost\\milestones\\M3_POSITION_STATE\\program.mal",
+  "program_sha256": "e69fd6c6c56b93eef1c45755f2971faefc99e0344d54426812ae1304daa0a90b",
+  "structure": "IN CRAZY OUT IN CRAZY OUT HALT",
+  "index_state": {
+    "description": "i = per-character stage index, encoded in program position",
+    "stage0_constant": 61,
+    "stage1_constant": 58,
+    "transform_stage0": "crazy(c1, 61) % 256",
+    "transform_stage1": "crazy(c2, 58) % 256",
+    "second_depends_on_changed_i": true
+  },
+  "compile_once_test_many": true,
+  "results": [
+    {
+      "inputs": "AB",
+      "input_hex": "4142",
+      "program_sha256": "e69fd6c6c56b93eef1c45755f2971faefc99e0344d54426812ae1304daa0a90b",
+      "same_program": true,
+      "gost": "OH",
+      "oracle": "OH",
+      "expected": "OH",
+      "stage0": {
+        "c": "A",
+        "K": 61
+      },
+      "stage1": {
+        "c": "B",
+        "K": 58
+      },
+      "status": "PASS"
+    },
+    {
+      "inputs": "XY",
+      "input_hex": "5859",
+      "program_sha256": "e69fd6c6c56b93eef1c45755f2971faefc99e0344d54426812ae1304daa0a90b",
+      "same_program": true,
+      "gost": "\u001d\"",
+      "oracle": "\u001d\"",
+      "expected": "\u001d\"",
+      "stage0": {
+        "c": "X",
+        "K": 61
+      },
+      "stage1": {
+        "c": "Y",
+        "K": 58
+      },
+      "status": "PASS"
+    },
+    {
+      "inputs": "12",
+      "input_hex": "3132",
+      "program_sha256": "e69fd6c6c56b93eef1c45755f2971faefc99e0344d54426812ae1304daa0a90b",
+      "same_program": true,
+      "gost": "hd",
+      "oracle": "hd",
+      "expected": "hd",
+      "stage0": {
+        "c": "1",
+        "K": 61
+      },
+      "stage1": {
+        "c": "2",
+        "K": 58
+      },
+      "status": "PASS"
+    },
+    {
+      "inputs": "pq",
+      "input_hex": "7071",
+      "program_sha256": "e69fd6c6c56b93eef1c45755f2971faefc99e0344d54426812ae1304daa0a90b",
+      "same_program": true,
+      "gost": " \u001c",
+      "oracle": " \u001c",
+      "expected": " \u001c",
+      "stage0": {
+        "c": "p",
+        "K": 61
+      },
+      "stage1": {
+        "c": "q",
+        "K": 58
+      },
+      "status": "PASS"
+    },
+    {
+      "inputs": "mn",
+      "input_hex": "6d6e",
+      "program_sha256": "e69fd6c6c56b93eef1c45755f2971faefc99e0344d54426812ae1304daa0a90b",
+      "same_program": true,
+      "gost": " \u001f",
+      "oracle": " \u001f",
+      "expected": " \u001f",
+      "stage0": {
+        "c": "m",
+        "K": 61
+      },
+      "stage1": {
+        "c": "n",
+        "K": 58
+      },
+      "status": "PASS"
+    }
+  ],
+  "overall": "PASS"
+}
