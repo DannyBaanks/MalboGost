@@ -1,15 +1,26 @@
-# GOST — Malbolge Frontend in Pure Malbolge
+# MalboGost — Malbolge Frontend in Pure Malbolge
 
 > **A Malbolge program that writes Malbolge programs.** Python is only the cable — the logic lives in `.mal` and is verified on three independent interpreters.
 
-### Why "gost"?
+### Why "MalboGost"?
 
-`gost.c` is the standalone, GCC-built Malbolge interpreter at the core of the repo — the *host* that runs the Malbolge engine. The name is a nod to *ghost* (Malbolge is famously haunted) and to the Russian *gost'* (guest) — the host that guests the Malbolge memory `E=(I,X,O,S)`. The repo is called `gost` because everything orbits that binary: `frontend.mal` (pure Malbolge) + `gost` (C) + `oracle` (Python) — the same `.mal` runs on all three and the Python host is only the cable. Delete `frontend.mal` → frontend is gone; keep `gost.c` → you can still verify everything.
+**MalboGost is the project. `gost` is its canonical Malbolge runtime.**
 
-[![CI](https://github.com/DannyBaanks/gost/actions/workflows/ci.yml/badge.svg)](https://github.com/DannyBaanks/gost/actions/workflows/ci.yml)
+```
+MalboGost/
+├── gost.c          ← runtime (GCC-built, standalone)
+├── frontend.mal    ← Malbolge frontend
+├── compiler/
+├── milestones/
+└── evidence/
+```
+
+`gost.c` is the standalone Malbolge interpreter at the core — the *host* that runs the engine. The name is a nod to *ghost* (Malbolge is famously haunted) and to the Russian *gost'* (guest) — the host that guests the Malbolge memory `E=(I,X,O,S)`. The project is called **MalboGost** because everything orbits that binary: `frontend.mal` (pure Malbolge) + `gost` (C) + `oracle` (Python) — the same `.mal` runs on all three and the Python host is only the cable. Delete `frontend.mal` → frontend is gone; keep `gost.c` → you can still verify everything.
+
+[![CI](https://github.com/DannyBaanks/MalboGost/actions/workflows/ci.yml/badge.svg)](https://github.com/DannyBaanks/MalboGost/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-GOST is a research-grade Malbolge frontend: a single `.mal` file (plus the same SHA-256 across all inputs) reads **variable runtime input** and emits a **Malbolge print program** for that input. The same frontend handles many inputs (`COMPILE_ONCE_TEST_MANY`), and every claim is backed by hashed evidence and cross-checked on three runtimes: `gost.c` (GCC/C, canonical), `malbolge-oracle` (Python reference, Iizawa 2005), and `Malbolge-Engine`.
+MalboGost is a research-grade Malbolge frontend: a single `.mal` file (plus the same SHA-256 across all inputs) reads **variable runtime input** and emits a **Malbolge print program** for that input. The same frontend handles many inputs (`COMPILE_ONCE_TEST_MANY`), and every claim is backed by hashed evidence and cross-checked on three runtimes: `gost.c` (GCC/C, canonical), `malbolge-oracle` (Python reference, Iizawa 2005), and `Malbolge-Engine`.
 
 ```bash
 echo -n "Hi" | ./gost gost/frontend.mal  > print_Hi.mal   # frontend (Malbolge) generates
