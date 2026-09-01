@@ -2,6 +2,10 @@
 
 > **A Malbolge program that writes Malbolge programs.** Python is only the cable — the logic lives in `.mal` and is verified on three independent interpreters.
 
+### Why "gost"?
+
+`gost.c` is the standalone, GCC-built Malbolge interpreter at the core of the repo — the *host* that runs the Malbolge engine. The name is a nod to *ghost* (Malbolge is famously haunted) and to the Russian *gost'* (guest) — the host that guests the Malbolge memory `E=(I,X,O,S)`. The repo is called `gost` because everything orbits that binary: `frontend.mal` (pure Malbolge) + `gost` (C) + `oracle` (Python) — the same `.mal` runs on all three and the Python host is only the cable. Delete `frontend.mal` → frontend is gone; keep `gost.c` → you can still verify everything.
+
 [![CI](https://github.com/DannyBaanks/gost/actions/workflows/ci.yml/badge.svg)](https://github.com/DannyBaanks/gost/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
