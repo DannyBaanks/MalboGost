@@ -11,7 +11,15 @@ import os
 import unittest
 from pathlib import Path
 
-GOST = str(Path(__file__).parent / "gost.exe")
+def _find_gost():
+    p = Path(__file__).parent / "gost.exe"
+    if p.exists():
+        return str(p)
+    p2 = Path(__file__).parent / "gost"
+    if p2.exists():
+        return str(p2)
+    return str(p)
+GOST = _find_gost()
 ENGINE = str(Path(__file__).parent.parent / "Malbolge-Engine" / "malbolge.exe")
 ORACLE_DIR = str(Path(__file__).parent.parent / "malbolge-oracle")
 
@@ -100,17 +108,23 @@ class TestGostSpecific(unittest.TestCase):
 
     def test_gost_handles_eof(self):
         """When input is exhausted, '/' sets a=59048."""
+        if not Path(GOST).exists():
+            self.skipTest(f"gost not found at {GOST}")
         out, rc = run_gost("ubO", input_data=b"", steps=1000)
         # With no input, '/' reads EOF -> a=59048, output = chr(59048 % 256)
         self.assertEqual(rc, 0)
 
     def test_gost_step_limit(self):
         """Timeout returns non-zero exit code."""
+        if not Path(GOST).exists():
+            self.skipTest(f"gost not found at {GOST}")
         out, rc = run_gost("ubO", input_data=b"A", steps=1)
         self.assertEqual(rc, 3)  # timeout exit code
 
     def test_gost_invalid_program(self):
         """Empty program fails gracefully."""
+        if not Path(GOST).exists():
+            self.skipTest(f"gost not found at {GOST}")
         r = subprocess.run([GOST, "nonexistent.mal"], capture_output=True, timeout=10)
         self.assertNotEqual(r.returncode, 0)
 
@@ -124,6 +138,8 @@ class TestXlatConsistency(unittest.TestCase):
         self.assertEqual(r.stdout.strip(), b"94")
 
     def test_xlat2_is_permutation(self):
+        if not Path(ORACLE_DIR).exists():
+            self.skipTest(f"oracle not found at {ORACLE_DIR}")
         code = (
             "import sys; sys.path.insert(0, r'" + ORACLE_DIR + "')\n"
             "from oracle import XLAT2\n"
