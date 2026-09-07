@@ -1,7 +1,7 @@
 {
   "milestone": "M2_FIXED_TRANSFORM",
   "interpreter": "gost.exe",
-  "program": "C:\\Development\\ISyCo Git\\gost\\milestones\\M2_FIXED_TRANSFORM\\program.mal",
+  "program": "milestones\\M2_FIXED_TRANSFORM\\program.mal",
   "program_sha256": "2fb4e54a289064eb1fe7ae863dfc27ee0541adbb9ea5e1512596e367f70d724b",
   "transform": "a = crazy(input, mem[1]=61) % 256",
   "compile_once_test_many": true,

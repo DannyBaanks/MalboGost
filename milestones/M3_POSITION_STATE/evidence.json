@@ -1,7 +1,7 @@
 {
   "milestone": "M3_POSITION_STATE",
   "interpreter": "gost.exe",
-  "program": "C:\\Development\\ISyCo Git\\gost\\milestones\\M3_POSITION_STATE\\program.mal",
+  "program": "milestones\\M3_POSITION_STATE\\program.mal",
   "program_sha256": "e69fd6c6c56b93eef1c45755f2971faefc99e0344d54426812ae1304daa0a90b",
   "structure": "IN CRAZY OUT IN CRAZY OUT HALT",
   "index_state": {

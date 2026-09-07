@@ -185,8 +185,8 @@ test_gost.py           # 10 pruebas cross-backend
 # lint (si ruff esta instalado)
 ruff check .
 
-# repo-engine health (sin rutas privadas, sin secretos)
-py ../ISyCo/tools/repo-engine/repo-engine.py analyze gost --format json
+# higiene del repo: verificada con una herramienta interna de analisis
+# (no es parte de la superficie de reproduccion publica de este repo)
 
 # agregar un hito
 mkdir milestones/M8_XXX && cp template/* milestones/M8_XXX/

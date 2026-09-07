@@ -1,8 +1,8 @@
 {
   "milestone": "M0_RUNTIME_INPUT",
   "interpreter": "gost",
-  "command": "py run_milestone.py C:\\Development\\ISyCo Git\\gost\\milestones\\M0_RUNTIME_INPUT --inputs A B C X Z 7",
-  "program_path": "C:\\Development\\ISyCo Git\\gost\\milestones\\M0_RUNTIME_INPUT\\program.mal",
+  "command": "py run_milestone.py milestones\\M0_RUNTIME_INPUT --inputs A B C X Z 7",
+  "program_path": "milestones\\M0_RUNTIME_INPUT\\program.mal",
   "program_sha256": "681f8033410df7a4a5d7eaa3f8c730929459de77ed4fd27cac02cd813ab36c0c",
   "compile_once_test_many": true,
   "results": [
