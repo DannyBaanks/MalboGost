@@ -1,24 +1,13 @@
-# MalboGost — Frontend Malbolge en Malbolge Puro
+# MalboGost v2.0 — Frontend Malbolge en Malbolge Puro con Soporte Multi-Runtime Linux
 
-> **Un programa Malbolge que escribe programas Malbolge.** Python solo es el cable — la logica vive en `.mal` y se verifica en tres interpretes independientes.
-
-### Por que "MalboGost"?
-
-**MalboGost es el proyecto. `gost` es su runtime canonico de Malbolge.**
-
-```
-MalboGost/
-├── gost.c          ← runtime (construido con GCC, standalone)
-├── frontend.mal    ← frontend Malbolge
-├── compiler/
-├── milestones/
-└── evidence/
-```
-
-`gost.c` es el interprete standalone de Malbolge en el nucleo — el *host* que corre el motor. El nombre es un guiño a *ghost* (Malbolge es famosamente embrujado) y al ruso *gost'* (huesped) — el host que hospeda la memoria de Malbolge `E=(I,X,O,S)`. El proyecto se llama **MalboGost** porque todo orbita ese binario: `frontend.mal` (Malbolge puro) + `gost` (C) + `oracle` (Python) — el mismo `.mal` corre en los tres y el host Python solo es el cable. Borra `frontend.mal` → el frontend desaparece; conserva `gost.c` → todavia puedes verificar todo.
-
+[![Version](https://img.shields.io/badge/version-2.0-blue.svg)](https://github.com/DannyBaanks/MalboGost)
+[![Tests](https://img.shields.io/badge/tests-10%2F10%20PASS-brightgreen.svg)]()
 [![CI](https://github.com/DannyBaanks/MalboGost/actions/workflows/ci.yml/badge.svg)](https://github.com/DannyBaanks/MalboGost/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+> **Un programa Malbolge que escribe programas Malbolge.** Python solo es el cable — la lógica vive en `.mal` y se verifica en tres intérpretes independientes (`gost`, `malbolge-oracle`, `Malbolge-Engine`).
+
+Parte de la **Flota de Consenso Multi-Oráculo v2.0** del ecosistema Malbolge de ISyCo.
 
 MalboGost es un frontend de nivel investigacion: un solo archivo `.mal` (mas el mismo SHA-256 en todos los inputs) lee **input de runtime variable** y emite un **programa de impresion Malbolge** para ese input. El mismo frontend maneja muchos inputs (`COMPILE_ONCE_TEST_MANY`), y cada claim esta respaldado por evidencia hasheada y verificada en tres runtimes: `gost.c` (GCC/C, canonico), `malbolge-oracle` (referencia Python, Iizawa 2005), y `Malbolge-Engine`.
 
