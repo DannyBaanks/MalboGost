@@ -19,13 +19,13 @@ import os
 from pathlib import Path
 
 def _find_gost():
-    p = Path(__file__).parent / "gost.exe"
-    if p.exists():
-        return str(p)
-    p2 = Path(__file__).parent / "gost"
-    if p2.exists():
-        return str(p2)
-    return str(p)
+    primary = Path(__file__).parent / ("gost.exe" if sys.platform == "win32" else "gost")
+    if primary.exists():
+        return str(primary)
+    fallback = Path(__file__).parent / ("gost" if sys.platform == "win32" else "gost.exe")
+    if fallback.exists():
+        return str(fallback)
+    return str(primary)
 GOST = _find_gost()
 ORACLE_DIR = str(Path(__file__).parent.parent / "malbolge-oracle")
 

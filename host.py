@@ -16,19 +16,23 @@ import sys
 from pathlib import Path
 
 GOST_C = Path(__file__).parent / "gost.c"
-GOST_EXE = Path(__file__).parent / "gost.exe"
+BIN_NAME = "gost.exe" if sys.platform == "win32" else "gost"
+GOST_EXE = Path(__file__).parent / BIN_NAME
 ORACLE = Path(__file__).parent.parent / "malbolge-oracle" / "oracle.py"
-ENGINE = Path(__file__).parent.parent / "Malbolge-Engine" / "malbolge.exe"
+ENGINE = Path(__file__).parent.parent / "Malbolge-Engine" / ("malbolge.exe" if sys.platform == "win32" else "malbolge")
 
 
 def find_gost() -> Path:
     """Find gost executable, compile if needed."""
     if GOST_EXE.exists():
         return GOST_EXE
+    alt = Path(__file__).parent / ("gost" if sys.platform == "win32" else "gost.exe")
+    if alt.exists() and os.access(str(alt), os.X_OK):
+        return alt
     compile_gost()
     if GOST_EXE.exists():
         return GOST_EXE
-    raise FileNotFoundError("gost.exe not found and compilation failed")
+    raise FileNotFoundError(f"{BIN_NAME} not found and compilation failed")
 
 
 def compile_gost():

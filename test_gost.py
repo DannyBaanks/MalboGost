@@ -12,15 +12,25 @@ import unittest
 from pathlib import Path
 
 def _find_gost():
-    p = Path(__file__).parent / "gost.exe"
-    if p.exists():
-        return str(p)
-    p2 = Path(__file__).parent / "gost"
-    if p2.exists():
-        return str(p2)
-    return str(p)
+    primary = Path(__file__).parent / ("gost.exe" if sys.platform == "win32" else "gost")
+    if primary.exists():
+        return str(primary)
+    fallback = Path(__file__).parent / ("gost" if sys.platform == "win32" else "gost.exe")
+    if fallback.exists():
+        return str(fallback)
+    return str(primary)
+def _find_engine():
+    base = Path(__file__).parent.parent / "Malbolge-Engine"
+    primary = base / ("malbolge.exe" if sys.platform == "win32" else "malbolge")
+    if primary.exists():
+        return str(primary)
+    fallback = base / ("malbolge" if sys.platform == "win32" else "malbolge.exe")
+    if fallback.exists():
+        return str(fallback)
+    return str(primary)
+
 GOST = _find_gost()
-ENGINE = str(Path(__file__).parent.parent / "Malbolge-Engine" / "malbolge.exe")
+ENGINE = _find_engine()
 ORACLE_DIR = str(Path(__file__).parent.parent / "malbolge-oracle")
 
 # Canonical programs

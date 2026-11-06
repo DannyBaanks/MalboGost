@@ -14,8 +14,9 @@ import os
 from pathlib import Path
 
 GOST_C = Path(__file__).parent.parent / "gost.c"
-GOST_EXE = Path(__file__).parent.parent / "gost.exe"
-ENGINE = Path(__file__).parent.parent.parent / "Malbolge-Engine" / "malbolge.exe"
+BIN_NAME = "gost.exe" if sys.platform == "win32" else "gost"
+GOST_EXE = Path(__file__).parent.parent / BIN_NAME
+ENGINE = Path(__file__).parent.parent.parent / "Malbolge-Engine" / ("malbolge.exe" if sys.platform == "win32" else "malbolge")
 ORACLE_DIR = Path(__file__).parent.parent.parent / "malbolge-oracle"
 
 
